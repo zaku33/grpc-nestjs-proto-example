@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package anime;
+
+message MetaData {
+  string name = 1;
+  string type = 2;
+}
+
+message File {
+  bytes content = 1;
+}
+
+enum Status {
+  PENDING = 0;
+  IN_PROGRESS = 1;
+  SUCCESS = 2;
+  FAILED = 3;
+}
+
+message CreateAnimeRequest {
+  File file = 1;
+}
+
+message CreateAnimeResponse {
+  int32 status = 1;
+  string name=3;
+  repeated string error = 2;
+}
+
+service ServiceName {
+  rpc CreateAnime (stream CreateAnimeRequest) returns (CreateAnimeResponse) {};
+  // rpc EditAnime (stream EditAnimeRequest) returns (EditAnimeResponse) {};
+  // rpc WatchAnime (WatchAnimeRequest) returns (stream WatchAnimeResponse) {};
+  // rpc ListAnime (ListAnimeRequest) returns (ListAnimeResponse) {};
+}
