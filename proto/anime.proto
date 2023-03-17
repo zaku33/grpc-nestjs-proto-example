@@ -28,7 +28,7 @@ message CreateAnimeResponse {
   repeated string error = 2;
 }
 
-service ServiceName {
+service AnimeService {
   rpc CreateAnime (stream CreateAnimeRequest) returns (CreateAnimeResponse) {};
   // rpc EditAnime (stream EditAnimeRequest) returns (EditAnimeResponse) {};
   // rpc WatchAnime (WatchAnimeRequest) returns (stream WatchAnimeResponse) {};
